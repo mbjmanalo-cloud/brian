@@ -29,7 +29,10 @@ function App() {
     fetchNotes();
   };
 
-  const startEdit = (n) => { setEditingId(n.id); setEditText(n.text); };
+  const startEdit = (n) => {
+    setEditingId(n.id);
+    setEditText(n.text);
+  };
 
   const saveEdit = async (id) => {
     if (editText.trim() === "") return;
@@ -38,10 +41,10 @@ function App() {
     fetchNotes();
   };
 
- // eslint-disable-next-line react-hooks/exhaustive-deps
-useEffect(() => {
-  fetchNotes();
-}, []);
+  useEffect(() => {
+    fetchNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="app">
